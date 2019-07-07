@@ -18,7 +18,7 @@ Suggests: knitr, rmarkdown, covr, testthat, dplyr, tidyr, devtools
 VignetteBuilder: knitr
 URL: https://github.com/LCBC-UiO/ggsegExtra
 BugReports: https://github.com/LCBC-UiO/ggsegExtra/issues
+biocViews:
 Repository: Neuroconductor
 Remotes:  
-    neuroconductor/ggseg@95edb6c77b3c6f81d1e3bd8381d765c659b5220f
-biocViews: 
+    neuroconductor/ggseg@35174ae85938b4bfe8c62de01d41e64f00f046c1
