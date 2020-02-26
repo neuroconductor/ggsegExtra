@@ -1,6 +1,6 @@
 language: r
+cache: packages
 warnings_are_errors: true
-cache: false
 use_bioc: true
 bioc_required: true
 cran: http://cran.rstudio.com
@@ -13,15 +13,10 @@ addons:
     - libfftw3-dev
     - libgsl0-dev
     - libgsl0ldbl
-    - mesa-common-dev
-    - libglu1-mesa-dev
-    - devscripts
 os:
 - linux
 - osx
-osx_image: xcode9.4
-services:
-- xvfb
+osx_image: xcode9
 r:
 - 3.3
 - 3.4
@@ -37,8 +32,6 @@ env:
   - PROJECT_NAME=neuroconductor
   - DISPLAY=:99.0
   - R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
-  - _R_CHECK_FORCE_SUGGESTS_=false
-  - secure: lNPVmgrMXJYbdQm4ygxB8jOtpDCFo9V23ZaHL+pgLzc7XbpFypF4yoR1wVM1E2a3eKt1gsvYEdkj6AyYFYtM/jztI1v4PAqcJoE40Ng6xpicYzg/vr6l+fP0biQLCUjQuZjQmxlxhp6lEtnwR92K242S6U+Bg87VoXXm5PtVsi4pWz+CzcoKgAYsTuEjPbgsl4KF4XXLGo8x1g99vNSkLQ3ElcwYC70nPm0n1FeHJMgLAt+Jvih7RBN6krvnmAdM7tXoWTtXXBJup0rYzY9E1XoTz3dqvJPJHBUywOLftXzHN0Av7oyp13DCrC/HQiSsNSiFIODaUdKA8ixTsmQ2RxOMfWWxdraaDtw2e00mXi6l/C9mMyO8bZwkMeBk0NzFNRhxCm8H98lh75tAmtm65XSd5Ss/y8qT0T12jvwGwFKhEjrrcHDpvsQKrpgoYlOLNljioBCtcahpo5NTxwSEPVfhkdnIwOFPQWCCn4M6jfcqMNRSNI9TC+lBrSdNr8muuCBXRVV4B/dgtx8ybgd8Lt49Kb/0BCuM1Y7Nags8TfIK8PISkspsX9ts5sjKC1DLyKdofErt2gKBJ4p50R/0YO3BB1+bdX7zQwQdstVc6fqfwiU8CMk+rn+vu7oixqIA35MO1XhcRiZcsic8VyMH7rPD4et5hee9u+V7i4EHufo=
 r_check_args: "--as-cran --install-args=--build"
 before_install:
 - ulimit -n 2048
@@ -47,14 +40,12 @@ before_install:
 - wget -O ${fname} http://bit.ly/travis_helpers
 - cat ${fname}; source ${fname}; rm ${fname}
 - cat DESCRIPTION
-- codename=`linux_codename`;
-- if [ "${codename}" = "trusty" ]; then start_xvfb ; fi
+- start_xvfb ;
 - export rver=`r_version`; echo $rver ;
-- if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; brew install -v freetype ; fi
-- jags_install || true;
-- if `need_v8`; then v8_install || true; fi
-- dcmtk_install || true;
-- gsl_install 2.1 || true ;
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; fi
+- jags_install ;
+- v8_install ;
+- dcmtk_install ;
 - export cmake_version="3.11"
 - cmake --version
 - x=`cmake_setup`; echo "${x}"; eval ${x};
@@ -95,7 +86,7 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: E0lYmM3qPeocEdD7fbDooxy3rpH9eyUZgd02v3WkbKeY6LVhvIgP19ESrYilrKUw7Ahx9mKCmlcnpS/iix3LDXUwbfAsf4MEvjBBI8SpQLCBb5k7jJktr81KI9hOL39kz4quPULINJh6/3rKb7puJOu55odEpH+lMuicBuXzCndZRNLtiXJvaYOd0hGYapEQjgU/9r7HI0MjloauyrfEwqpOUVv+2M4Rq38Mqq2Le5XEVJzUg9Qos5V7RQsdSqjfG38FYJ6HZ4LQh4i78eEvhurMnaakFuPetS4RrwpEAy3lAM1FEpbFZPVwvptVSEyskGje50a9rNv0UOUdpIqNEoMhn6rz79ex4XKuWRw9AeQ2gO9de7dq9LbwyIythr567TbypNF/0OQL3laqysyiFch2x5L50e4aHZ9hSUDhxDRy5l1P+ugiedlzVxzdoHGRwvh0EHTpNbWDiUwgK+kBqAc7gOpKqKNPpVtvb2vwRlQ3zeaDTcjcG95KnGqSoWkNI57lPQdyUMayX58EO6GP5CpbsCxmW8B0lZSbk1+7onY/TLM6mWD17k0JnhQ91MrdwW5MEDsLN9mZoBSTFWtIvW7OGFrmyZfNSfclmIu2FjaWWTyhz54yg0B0O0VMmfgxF4nqScaCYF5FSIociUjx45+IIAqfzCeHAXlQTpmpu1I=
+    secure: AJ3RstfgondsPgZZK2lTp5rrv7nfjPp4En7/AISoSk43IOJNaxXjFioYxjfjqZGcrooWqeKHTwsHqYo9Yo5ZgO/cgHr9MRDGGjCLIxH82p1oQ3OrJaEWBr9/TfHNz3j9QATlobBuhSIvgRTDX8l68PHI46+VR+DdhbfrSMP8aDmfNg7ktORQQlJEHfhjYg3LybFFhjzfN/8cOVzuS3vsI5t3qEou4ZZlUNj+uk+o4xTHVtb0pQ0SODf6iqnacPObRZV6UvEXjH6b3YzZlumK55LG6B2YN3RpEwXe7nTDbJGt6hQp6g/71EmcDo4Y7vtAM98xeeVqmdVhescMXV6EF9WivQ3zqLPthFQTHNcWwTCB5fIaAr2AK4M9DCnWYqWbu6g/Nc5xLs2WF7KKDl9TedrsI79LszlKM+glAmoTEoESZa31cS8Bhi3J0wK6PwjzgX5YA34GEp/908soSRf7KmJsh8sso6VCiCMAhoiWQKkw4PTEGMD4rAQnKpBkTavL6rx5ObbG/xmmWI0aNn+VuMmJ194Q00Y0/VrLGviUb7kGtDIBxovo8XMPokY+5EoCTrINUju/xuedw3DjrMrXOWZO+kDGxNzRY/+oanQQ2amTHYKJunAvEsgiwm/9Ao1EIJ9oqS/hNbnriyr7mpq1ByjbhfyN9LmLLGSB03rCYmU=
 after_deploy:
 - echo "${PROJECT_NAME}" | grep -q "releases"; if [[ $? -eq 0 ]]; then run_coverage="false";
   else run_coverage=; fi;
