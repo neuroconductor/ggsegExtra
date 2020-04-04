@@ -11,8 +11,9 @@
 ^LICENSE\.md$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-img
 ^README\.Rmd$
+^_pkgdown\.yml$
+^CODE_OF_CONDUCT\.md$
+^man-roxygen$
 ^DESCRIPTION\.bak$
 ^\./\.travis\.yml\.bak$
-^\./appveyor\.yml\.bak$
