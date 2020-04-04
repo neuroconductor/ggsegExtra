@@ -17,3 +17,4 @@
 ^man-roxygen$
 ^DESCRIPTION\.bak$
 ^\./\.travis\.yml\.bak$
+^\./appveyor\.yml\.bak$
