@@ -22,10 +22,10 @@ Suggests: ggseg, ggplot2, ggseg3d, ggsegYeo2011, knitr, rmarkdown,
 VignetteBuilder: knitr
 URL: https://github.com/LCBC-UiO/ggsegExtra
 BugReports: https://github.com/LCBC-UiO/ggsegExtra/issues
-biocViews:
 Repository: Neuroconductor
 Remotes:  
     LCBC-UiO/ggseg3d,
     LCBC-UiO/ggsegYeo2011,
-    neuroconductor/ggseg@d95539a06c39a51b8d6abae3b9b1373c8b06783d,
-    neuroconductor/freesurfer@9bc5d366584ca943a4f72c8f93db562aebd5cedc
+    neuroconductor/ggseg@35ab598ef83bc747f30d51cc10f857683979cb4a,
+    neuroconductor/freesurfer@8e15d37300290e1279de81aa41a3627060d3fa07
+biocViews: 
