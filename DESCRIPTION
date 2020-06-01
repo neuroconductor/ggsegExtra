@@ -1,14 +1,14 @@
 Package: ggsegExtra
-Title: Extra datasets for the ggseg-plotting tool
+Title: Extra Datasets for the 'ggseg'-Plotting Tool
 Version: 1.5
 Authors@R: c(person("Athanasia Mo", "Mowinckel", email =
         "a.m.mowinckel@psykologi.uio.no", role = c("aut", "cre"),
         comment = c(ORCID = "0000-0002-5756-0223")), person("Didac",
         "Vidal-Pi<c3><b1>eiro", email = "d.v.pineiro@psykologi.uio.no",
         role = c("aut"), comment = c(ORCID = "0000-0001-9997-9156")))
-Description: This is a support package for the ggseg, and ggseg3d
-        packages. It contains extra atlas datasets to plot using
-        functions from those two packages.
+Description: Supporting atlas datasets for the 'ggseg', and 'ggseg3d'
+        packages.  The plotting functions from those two packages
+        should be used on these atlas data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.1.0
@@ -17,15 +17,26 @@ LazyData: true
 Imports: usethis, smoothr, raster, magick, withr, freesurfer, janitor,
         purrr, readr, dplyr, tidyr, stringr, grDevices, plotly, xml2,
         utils, sf, stats, rmapshaper, stars, geomorph, crayon
-Suggests: ggseg, ggplot2, ggseg3d, ggsegYeo2011, knitr, rmarkdown,
-        covr, testthat (>= 2.1.0), devtools
+Suggests: ggseg (>= 1.5.4), ggplot2, ggseg3d (>= 1.6.0), ggsegYeo2011,
+        ggsegDesterieux, ggsegChen, ggsegSchaefer, ggsegGlasser,
+        ggsegJHU, ggsegTracula, ggsegICBM, ggsegHO, ggsegDefaultExtra,
+        knitr, rmarkdown, covr, testthat (>= 2.1.0), devtools
 VignetteBuilder: knitr
 URL: https://github.com/LCBC-UiO/ggsegExtra
 BugReports: https://github.com/LCBC-UiO/ggsegExtra/issues
-biocViews:
 Repository: Neuroconductor
 Remotes:  
     LCBC-UiO/ggseg3d,
     LCBC-UiO/ggsegYeo2011,
-    neuroconductor/ggseg@d9082f6d701be3d82d508fc4be7008a1574e365b,
-    neuroconductor/freesurfer@9bc5d366584ca943a4f72c8f93db562aebd5cedc
+    LCBC-UiO/ggsegDesterieux,
+    LCBC-UiO/ggsegChen,
+    LCBC-UiO/ggsegSchaefer,
+    LCBC-UiO/ggsegGlasser,
+    LCBC-UiO/ggsegJHU,
+    LCBC-UiO/ggsegTracula,
+    LCBC-UiO/ggsegICBM,
+    LCBC-UiO/ggsegHO,
+    LCBC-UiO/ggsegDefaultExtra,
+    neuroconductor/ggseg@35ab598ef83bc747f30d51cc10f857683979cb4a,
+    neuroconductor/freesurfer@edf803a0b4af89d2f47d8a3e4ad3f9cd24072e5b
+biocViews: 
