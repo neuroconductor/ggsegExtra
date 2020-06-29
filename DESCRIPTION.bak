@@ -1,14 +1,16 @@
 Package: ggsegExtra
-Title: Extra Datasets for the 'ggseg'-Plotting Tool
-Version: 1.5
+Title: Extra Utilities for the 'ggseg'-Plotting Tool
+Version: 1.5.2
 Authors@R: c(person("Athanasia Mo", "Mowinckel", email =
         "a.m.mowinckel@psykologi.uio.no", role = c("aut", "cre"),
         comment = c(ORCID = "0000-0002-5756-0223")), person("Didac",
         "Vidal-Pi<c3><b1>eiro", email = "d.v.pineiro@psykologi.uio.no",
-        role = c("aut"), comment = c(ORCID = "0000-0001-9997-9156")))
-Description: Supporting atlas datasets for the 'ggseg', and 'ggseg3d'
-        packages.  The plotting functions from those two packages
-        should be used on these atlas data.
+        role = c("aut"), comment = c(ORCID = "0000-0001-9997-9156")),
+        person("John", "Muschelli", email = "muschellij2@gmail.com",
+        role = c("ctb"), comment = c(ORCID = "0000-0001-6469-1750")))
+Description: Supporting atlas datasets and functions for the 'ggseg',
+        and 'ggseg3d' packages.  The plotting functions from those two
+        packages should be used on these atlas data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.1.0
@@ -16,7 +18,7 @@ Depends: R (>= 2.10)
 LazyData: true
 Imports: usethis, smoothr, raster, magick, withr, freesurfer, janitor,
         purrr, readr, dplyr, tidyr, stringr, grDevices, plotly, xml2,
-        utils, sf, stats, rmapshaper, stars, geomorph, crayon
+        utils, sf, stats, rmapshaper, stars, geomorph, crayon, rgdal
 Suggests: ggseg (>= 1.5.4), ggplot2, ggseg3d (>= 1.6.0), ggsegYeo2011,
         ggsegDesterieux, ggsegChen, ggsegSchaefer, ggsegGlasser,
         ggsegJHU, ggsegTracula, ggsegICBM, ggsegHO, ggsegDefaultExtra,
