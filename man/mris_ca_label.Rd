@@ -30,7 +30,7 @@ subject's vertices to the reference "average" surface. Example: sphere.reg}
 
 \item{subjects_dir}{Freesurfer subject directory}
 
-\item{opts}{other options to freesurfer function mris_ca_label}
+\item{opts}{other arguments to freesurfer command}
 }
 \description{
 For a single subject, produces an annotation file, in which each 
@@ -47,5 +47,8 @@ mris_ca_train).
 if(freesurfer::have_fs()){
 # for freesurfer help see:
 freesurfer::fs_help("mris_ca_label")
+mris_ca_label(output_file = "test.lh.annot")
+
+mris_ca_label(hemisphere = "rh", output_file = "test.rh.annot")
 }
 }
