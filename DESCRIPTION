@@ -40,5 +40,5 @@ Remotes:
     LCBC-UiO/ggsegICBM,
     LCBC-UiO/ggsegHO,
     LCBC-UiO/ggsegDefaultExtra,
-    neuroconductor/ggseg@498f086e0707782dce3f086079f11c4f289dc26b,
-    neuroconductor/freesurfer@edf803a0b4af89d2f47d8a3e4ad3f9cd24072e5b
+    neuroconductor/ggseg@86f946946157221e378ed764b3cd59e880b5af92,
+    neuroconductor/freesurfer@9bc5d366584ca943a4f72c8f93db562aebd5cedc
